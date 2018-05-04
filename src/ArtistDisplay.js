@@ -12,36 +12,46 @@ const Title = styled.h1`
   color: lightgray;
 `;
 
+const Display = styled.div`
+
+  border: 3px;
+  float:right;
+  width:80%
+`;
+
 class ArtistDisplay extends React.Component{
   constructor(props){
     super(props)
   }
   render(){
     let x = this.props.artistinfo;
-    let display = null;
-    let image = (<div>no img available</div>);
+    let info = null;
+    let image = null;
     if(x!=null){
       console.log('render its not null!'+x);
       let images = x.images;
-      if(images != null){
-
+      if(images.length != 0){
+        console.log("images not []"+ images);
         // chooses the first image
-        let imageurl = images[0].url
+        let imageurl = images[0].url;
         console.log("there are images"+imageurl);
-        image = (<Logo src= {imageurl} />)
+        image = (<Logo src= {imageurl} />);
+      }
+      else{
+        image = (<Logo src= 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/480px-No_image_available.svg.png' />);
       }
 
-      display = (<Title>
+      info = (<Title>
         <div>{x.name}</div>
         <div>Popularity: {x.popularity}</div>
-        <div> Followers:{x.followers.total} </div>
+        <div> Followers: {x.followers.total} </div>
         </Title>);
     }
     else{
-      display = (<p>No Artist Chosen</p>);
+      info = null;
     }
     return(
-      <div>{display} {image}</div>
+      <Display>{info} {image}</Display>
 
     );
   }

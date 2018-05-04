@@ -32,7 +32,6 @@ const List = styled.ul`
     display: inline-block;
     margin: 0;
     padding: 0;
-    /* For IE, the outcast */
     zoom:1;
     width: 20%;
     *display: inline;
@@ -42,7 +41,8 @@ const Item = styled.div`
   color: white;
   padding: 0.25em 1em;
   &:hover {
-    background: yellow;
+    background-color: yellow;
+    color: grey;
   }
 `;
 
@@ -94,6 +94,12 @@ class SearchBar extends React.Component {
   handleSubmit(event) {
     // alert('A name was submitted: ' + this.state.value);
     this.apiCall(this.state.value);
+    let currentComponent = this;
+    currentComponent.setState({
+      value: '',
+      artistinfo: null,
+      artistlist: []
+    });
     event.preventDefault();
   }
 
