@@ -13,17 +13,6 @@ const Input = styled.input`
   border-radius: 3px;
 `;
 
-const Button = styled.button`
-  background-color: lightgreen;
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
-  &:hover {
-    background: #555;
-  }
-`;
 const Form = styled.form`
   background: lightgreen;
 `;
@@ -126,8 +115,6 @@ Changes state of artistinfo
   render() {
     // console.log('nameform render '+this.props.token);
     spotifyApi.setAccessToken(this.props.token);
-    let x = null;
-    let a = this.state.artistlist;
     return (
       <div>
         <Form onSubmit={this.handleSubmit}>
@@ -145,7 +132,7 @@ Changes state of artistinfo
             )}
 
           </List>
-          <ArtistDisplay artistinfo = {this.state.artistinfo}/>
+          <ArtistDisplay artistinfo={this.state.artistinfo}/>
         </InfoContainer>
       </div>
 
