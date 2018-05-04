@@ -7,6 +7,10 @@ cd into ml_spotify_app
 run 'npm install'
 run 'npm start'
 
+type in the name of an artist
+choose from the list of artists
+artist info should be displayed
+
 Notice:
 The calls made by the application may not run due to CORS issues. The directions below should fix the issues.
 Install the chrome extension: allow-control-allow-Origin
